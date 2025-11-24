@@ -1,6 +1,7 @@
 import { DataGrid } from "@mui/x-data-grid";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Tooltip from '@mui/material/Tooltip';
 
 
 function BookGrid(props) {
@@ -15,9 +16,11 @@ function BookGrid(props) {
       sortable: false,
       disableColumnMenu: true,
       renderCell: (params) => (
-        <IconButton size="small" color="error" onClick={() => props.deleteBook(params.row.id)}>
-          <DeleteIcon />
-        </IconButton>
+        <Tooltip title="Delete">
+          <IconButton size="small" color="error" onClick={() => props.deleteBook(params.row.id)}>
+            <DeleteIcon />
+          </IconButton>
+        </Tooltip>
       )
     }
   ]
